@@ -1,0 +1,106 @@
+<div class="card-body">
+    <h3>Modificacion de Producto</h3>
+    <form [formGroup]="form" class="form">
+        <div class="row justify-content-center">
+            <div class="card-profile-image-custom">
+                <div class="col-lg-3 order-lg-2">
+                    <label >
+                        <input type="file" style="display: none;" >
+                        <a>
+                            <img  src='assets/img/brand/producto.png' width="100" height="100" class="rounded-circle">
+                        </a>
+                    </label>    
+                </div>
+            </div>
+        </div> 
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-5 pb-md-9">
+            <div class="d-flex justify-content-between">
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.codigoProveedor.valid && (form.controls.codigoProveedor.dirty ),
+                            'has-danger': form.controls.codigoProveedor.invalid && (form.controls.codigoProveedor.dirty )
+                        }">
+                        <label class="form-control-label">codigoProveedor</label>&nbsp;
+                        <label  class="form-control-label"> <h5 style="color: gray;">(Ej.3721875)</h5> </label>
+                        <br />
+                        <input formControlName="codigoProveedor" 
+                                type="number" 
+                                class="form-control form-control-alternative" 
+                                name="codigoProveedor">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.descripcion.valid && (form.controls.descripcion.dirty ),
+                            'has-danger': form.controls.descripcion.invalid && (form.controls.descripcion.dirty )
+                        }">
+                        <label for="productoDescripcion" class="form-control-label"> <span class="requiredField">(*)</span>descripcion </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <br />
+                        <input type="text" 
+                                 formControlName="descripcion" 
+                                 name="descripcion" 
+                                 class="form-control form-control-alternative">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.existenciaMinima.valid && (form.controls.existenciaMinima.dirty ),
+                            'has-danger': form.controls.existenciaMinima.invalid && (form.controls.existenciaMinima.dirty )
+                        }">
+                        <label for="existenciaMinima" class="form-control-label"><span class="requiredField">(*)</span>existenciaMinima </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <input type="number" 
+                                formControlName="existenciaMinima" 
+                                name="existenciaMinima" 
+                                class="form-control form-control-alternative">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.fechaVencimiento.valid && (form.controls.fechaVencimiento.dirty ),
+                            'has-danger': form.controls.fechaVencimiento.invalid && (form.controls.fechaVencimiento.dirty )
+                        }">
+                        <label for="productofechaVencimiento" class="form-control-label"> <span class="requiredField">(*)</span>fechaVencimiento </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <br />
+                        <input type="text" 
+                                 formControlName="fechaVencimiento" 
+                                 name="fechaVencimiento" 
+                                 class="form-control form-control-alternative">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.ubicacionFisica.valid && (form.controls.ubicacionFisica.dirty ),
+                            'has-danger': form.controls.ubicacionFisica.invalid && (form.controls.ubicacionFisica.dirty )
+                        }">
+                        <label for="ubicacionFisica" class="form-control-label"><span class="requiredField">(*)</span>ubicacionFisica </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <input type="text" 
+                                formControlName="ubicacionFisica" 
+                                name="ubicacionFisica" 
+                                class="form-control form-control-alternative">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" 
+                        class="btn btn-success btn-lg center-custom"
+                        (click)="modifyProducto()">Modificar Producto</button>
+            </div>
+            
+        </div>
+    </form>
+</div>

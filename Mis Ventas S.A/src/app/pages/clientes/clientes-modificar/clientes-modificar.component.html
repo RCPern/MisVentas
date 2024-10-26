@@ -1,0 +1,125 @@
+<div class="card-body">
+    <h3>Cliente nuevo</h3>
+    <form [formGroup]="form" class="form">
+        <div class="row justify-content-center">
+            <div class="card-profile-image-custom">
+                <div class="col-lg-3 order-lg-2">
+                    <label >
+                        <input type="file" style="display: none;" >
+                        <a>
+                            <img  src='assets/img/users/user-default.png' width="100" height="100" class="rounded-circle">
+                        </a>
+                    </label>    
+                </div>
+            </div>
+        </div> 
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-5 pb-md-9">
+            <div class="d-flex justify-content-between">
+              <!-- <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a> -->
+              <!-- <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a> -->
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.estadoCliente.valid && (form.controls.estadoCliente.dirty ),
+                            'has-danger': form.controls.estadoCliente.invalid && (form.controls.estadoCliente.dirty )
+                        }">
+                        <label for="estadoCliente" class="form-control-label"> <span class="requiredField">(*)</span>estadoCliente </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <br />
+                        <input type="text" 
+                                 formControlName="estadoCliente" 
+                                 name="estadoCliente" 
+                                 class="form-control form-control-alternative">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.NIT.valid && (form.controls.NIT.dirty ),
+                            'has-danger': form.controls.NIT.invalid && (form.controls.NIT.dirty )
+                        }">
+                        <label class="form-control-label">NIT</label>&nbsp;
+                        <label  class="form-control-label"> <h5 style="color: gray;">(Ej.3721875)</h5> </label>
+                        <br />
+                        <input formControlName="NIT" 
+                                type="text" 
+                                class="form-control form-control-alternative" 
+                                name="NIT">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.nombres.valid && (form.controls.nombres.dirty ),
+                            'has-danger': form.controls.nombres.invalid && (form.controls.nombres.dirty )
+                        }">
+                        <label for="clienteNombres" class="form-control-label"> <span class="requiredField">(*)</span>Nombres </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <br />
+                        <input type="text" 
+                                 formControlName="nombres" 
+                                 name="nombres" 
+                                 class="form-control form-control-alternative">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.apellidos.valid && (form.controls.apellidos.dirty ),
+                            'has-danger': form.controls.apellidos.invalid && (form.controls.apellidos.dirty )
+                        }">
+                        <label for="clienteApellido" class="form-control-label"><span class="requiredField">(*)</span>Apellidos </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <input type="text" 
+                                formControlName="apellidos" 
+                                name="apellidos" 
+                                class="form-control form-control-alternative">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.direccion.valid && (form.controls.direccion.dirty ),
+                            'has-danger': form.controls.direccion.invalid && (form.controls.direccion.dirty )
+                        }">
+                        <label for="clienteDireccion" class="form-control-label"> <span class="requiredField">(*)</span>direccion </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <br />
+                        <input type="text" 
+                                 formControlName="direccion" 
+                                 name="direccion" 
+                                 class="form-control form-control-alternative">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group"
+                        [ngClass] = "{
+                            'has-success': form.controls.categoriaCliente.valid && (form.controls.categoriaCliente.dirty ),
+                            'has-danger': form.controls.categoriaCliente.invalid && (form.controls.categoriaCliente.dirty )
+                        }">
+                        <label for="categoriaCliente" class="form-control-label"><span class="requiredField">(*)</span>categoriaCliente </label>&nbsp;
+                        <label  class="form-control-label"> </label>
+                        <input type="text" 
+                                formControlName="categoriaCliente" 
+                                name="categoriaCliente" 
+                                class="form-control form-control-alternative">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+            </div>
+            <div class="row">
+                <button type="button" 
+                        class="btn btn-success btn-lg center-custom"
+                        (click)="modifCliente()">Modificar Cliente</button>
+            </div>
+        </div>
+    </form>
+</div>

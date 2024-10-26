@@ -1,0 +1,348 @@
+
+
+<div class="header pb-9 pt-5 pt-sm-8 d-flex align-items-center" style="min-height:400px;  background-image: url(assets/img/brand/bg.jpg); background-size:cover;
+     background-position:center;">
+</div>
+<!-- ACA SE MUESTRA EL CUADRO CENTRADO CON LAS OPCIONES QUE TIENE LA ADMINISTRACION DE ESTUDIANTES EN ESTE CASO -->
+<span class="mask bg-gradient-info opacity-6"></span>
+
+<div class="container-fluid mt--9">
+    <div class="row justify-content-center">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0"> Administración de Clientes</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- OPCIONES PARA ESCOGER TIPO NAVBAR -->
+            <div class="card-body">
+                <div class="nav-wrapper">
+                    <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                        <li class="nav-item" >
+                            <a class="nav-link mb-sm-3 mb-md-0 " id="tabs-icons-text-1-tab" data-toggle="tab"
+                                role="tab" aria-controls="tabs-icons-text-1" aria-selected="true" (click)="showTab1()"> 
+                                <i class="ni ni-fat-add mr-2 text-green" ></i>
+                                Crear Cliente
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-sm-3 mb-md-0 " id="tabs-icons-text-2-tab" data-toggle="tab"
+                                role="tab" aria-controls="tabs-icons-text-1" aria-selected="true" (click)="showTab2()"> 
+                                <i class="ni ni-fat-add mr-2 text-green" ></i>
+                                Consultar Cliente
+                            </a>
+                        </li>
+                    </ul>
+                </div> 
+                <!-- FINAL DE LA TABLA DE OPCIONES -->
+                <div class="card shadow ">
+                    <div class="card-body ">
+                        <div  class="tab-content" [ngSwitch]="numTab" id="myTabContent">
+                            <!-- ACA SE MUESTRA EL SWITCH DE LA FUNCIONALIDAD DE LA OPCION ESCOGIDA -->
+                            <ul pt--0>
+                                <div class="tab-pane" id="tabs-icons-text-1" role="tabpanel" *ngSwitchCase=1>
+                                    <div class="card-body">
+                                        <h3>Cliente nuevo</h3>
+                                        <form [formGroup]="form" class="form">
+                                            <div class="row justify-content-center">
+                                                <div class="card-profile-image-custom">
+                                                    <div class="col-lg-3 order-lg-2">
+                                                        <label >
+                                                            <input type="file" style="display: none;" >
+                                                            <a>
+                                                                <img  src='assets/img/users/user-default.png' width="100" height="100" class="rounded-circle">
+                                                            </a>
+                                                        </label>    
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-5 pb-md-9">
+                                                <div class="d-flex justify-content-between">
+                                                  <!-- <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a> -->
+                                                  <!-- <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a> -->
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"
+                                                            [ngClass] = "{
+                                                                'has-success': form.controls.estadoCliente.valid && (form.controls.estadoCliente.dirty ),
+                                                                'has-danger': form.controls.estadoCliente.invalid && (form.controls.estadoCliente.dirty )
+                                                            }">
+                                                            <label for="estadoCliente" class="form-control-label"> <span class="requiredField">(*)</span>estadoCliente </label>&nbsp;
+                                                            <label  class="form-control-label"> </label>
+                                                            <br />
+                                                            <input type="text" 
+                                                                     formControlName="estadoCliente" 
+                                                                     name="estadoCliente" 
+                                                                     class="form-control form-control-alternative">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"
+                                                            [ngClass] = "{
+                                                                'has-success': form.controls.NIT.valid && (form.controls.NIT.dirty ),
+                                                                'has-danger': form.controls.NIT.invalid && (form.controls.NIT.dirty )
+                                                            }">
+                                                            <label class="form-control-label">NIT</label>&nbsp;
+                                                            <label  class="form-control-label"> <h5 style="color: gray;">(Ej.3721875)</h5> </label>
+                                                            <br />
+                                                            <input formControlName="NIT" 
+                                                                    type="text" 
+                                                                    class="form-control form-control-alternative" 
+                                                                    name="NIT">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"
+                                                            [ngClass] = "{
+                                                                'has-success': form.controls.nombres.valid && (form.controls.nombres.dirty ),
+                                                                'has-danger': form.controls.nombres.invalid && (form.controls.nombres.dirty )
+                                                            }">
+                                                            <label for="clienteNombres" class="form-control-label"> <span class="requiredField">(*)</span>Nombres </label>&nbsp;
+                                                            <label  class="form-control-label"> </label>
+                                                            <br />
+                                                            <input type="text" 
+                                                                     formControlName="nombres" 
+                                                                     name="nombres" 
+                                                                     class="form-control form-control-alternative">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"
+                                                            [ngClass] = "{
+                                                                'has-success': form.controls.apellidos.valid && (form.controls.apellidos.dirty ),
+                                                                'has-danger': form.controls.apellidos.invalid && (form.controls.apellidos.dirty )
+                                                            }">
+                                                            <label for="clienteApellido" class="form-control-label"><span class="requiredField">(*)</span>Apellidos </label>&nbsp;
+                                                            <label  class="form-control-label"> </label>
+                                                            <input type="text" 
+                                                                    formControlName="apellidos" 
+                                                                    name="apellidos" 
+                                                                    class="form-control form-control-alternative">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"
+                                                            [ngClass] = "{
+                                                                'has-success': form.controls.direccion.valid && (form.controls.direccion.dirty ),
+                                                                'has-danger': form.controls.direccion.invalid && (form.controls.direccion.dirty )
+                                                            }">
+                                                            <label for="clienteDireccion" class="form-control-label"> <span class="requiredField">(*)</span>direccion </label>&nbsp;
+                                                            <label  class="form-control-label"> </label>
+                                                            <br />
+                                                            <input type="text" 
+                                                                     formControlName="direccion" 
+                                                                     name="direccion" 
+                                                                     class="form-control form-control-alternative">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group"
+                                                            [ngClass] = "{
+                                                                'has-success': form.controls.categoriaCliente.valid && (form.controls.categoriaCliente.dirty ),
+                                                                'has-danger': form.controls.categoriaCliente.invalid && (form.controls.categoriaCliente.dirty )
+                                                            }">
+                                                            <label for="categoriaCliente" class="form-control-label"><span class="requiredField">(*)</span>categoriaCliente </label>&nbsp;
+                                                            <label  class="form-control-label"> </label>
+                                                            <input type="text" 
+                                                                    formControlName="categoriaCliente" 
+                                                                    name="categoriaCliente" 
+                                                                    class="form-control form-control-alternative">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    
+                                                </div>
+                                                <div class="row">
+                                                    <button type="button" 
+                                                            class="btn btn-success btn-lg center-custom"
+                                                            (click)="crearCliente()">Crear Cliente</button>
+                                                </div>
+                                                
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tabs-icons-text-2" role="tabpanel" *ngSwitchCase=2>
+
+                                
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <i class="filtericon icon-accessibility"></i>
+                                            <h2 class="mb-2">Filtros</h2>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="" class="form-control-label">búsqueda por texto</label>
+                                                <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                                                    <input type="text" nz-input placeholder="búscar cliente" [(ngModel)]="valueInputSearch" />
+                                                </nz-input-group>
+                                                <ng-template #suffixIconButton>
+                                                   <button nz-button nzType="primary" nzSearch (click)="buscarPorTexto()"><i nz-icon nzType="search"></i></button>
+                                                </ng-template>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table id="tablaClientes" class="table align-items-center table-flush" >
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">Accion</th>
+                                                    <th scope="col">Codigo</th>
+                                                    <th scope="col">NIT</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Apellido</th>
+                                                    <th scope="col">direccion</th>
+                                                    <th scope="col">categoria</th>
+                                                    <th scope="col">estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody >
+                                                <tr *ngFor="let cliente of lstCliente| slice:desde:hasta" >
+                                    
+                                                    <td scope="row">
+                                                        <div class="media align-items-center">
+                                                            <button type="button" 
+                                                                ngbTooltip="click para modificar información del cliente"
+                                                                id ="btnModificarCliente"
+                                                                class=" btn-warning btnCircle"
+                                                                (click)="modifyCliente(cliente.codigoCliente)">
+                                    
+                                                                <span class="btn-inner--icon">
+                                                                    <span class="btn-inner--text"><i class="fas fa-user-edit"></i></span>
+                                                                </span>
+                                                            </button>
+                                                            &nbsp;
+                                                            <button type="button"
+                                                                ngbTooltip="click para dar de baja al cliente"
+                                                                class=" btn-danger  btnCircle"
+                                                                id ="btnEliminarCliente"
+                                                                (click)="deleteCliente(cliente.codigoCliente)">
+                                                                <span class="btn-inner--icon">
+                                                                    <span class="btn-inner--text"><i class="fas fa-user-times"></i></span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                
+                                                    <td>
+                                                        {{cliente.codigoCliente}}
+                                                    </td>
+                                                    <td>
+                                                        {{cliente.nit}}
+                                                    </td>
+                                                    <td>
+                                                        {{cliente.nombres}}
+                                                    </td>
+                                                    <td>
+                                                        {{cliente.apellidos}}
+                                                    </td>
+                                                    <td>
+                                                        {{cliente.direccion}}
+                                                    </td>
+                                                    <td>
+                                                        {{cliente.categoriaCliente}}
+                                                    </td>
+                                                    <td>
+                                                        {{cliente.estadoCliente}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <mat-paginator #paginadorClientes [length]="lstCliente.length"
+                                        [pageSize]="pageSize"
+                                        (page)="refreshPage($event)">
+                                    </mat-paginator>
+                                    
+
+                                      <!-- <ng-template #Msg let-c="close" let-d="dismiss">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title" id="modal-basic-title">Aviso</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>{{mensajeAdvertencia}}</h3>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button>
+                                        </div>
+                                      </ng-template> -->
+                                    <!-- <mat-paginator #paginadorClientes[length]="lstCliente.length"
+                                        [pageSize]="pageSize"
+                                        (page)="refreshPage($event)">
+                                    </mat-paginator>
+                                    
+                                    
+                                    
+                                   
+                                    <ng-template #confirmEliminar  let-c="close" let-d="dismiss">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title" id="modal-basic-title">Eliminación de clientes</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Estas seguro que deseas eliminar este registro?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" 
+                                                    class="btn btn-outline-danger"
+                                                    id ="btnConfirmDelStudent"
+                                                    (click)="c('Ok click')" >Eliminar</button>
+                                          <button type="button" class="btn btn-outline-dark" (click)="d('Close click')">Cancelar</button>
+                                        </div>
+                                      </ng-template>
+                                    
+                                    
+                                      
+                                    <ng-template #Msg let-c="close" let-d="dismiss">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title" id="modal-basic-title">Aviso</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>{{mensajeAdvertencia}}</h3>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button>
+                                        </div>
+                                      </ng-template>
+                                       -->
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>

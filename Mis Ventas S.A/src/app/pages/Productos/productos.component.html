@@ -1,0 +1,323 @@
+<div class="header pb-9 pt-5 pt-sm-8 d-flex align-items-center" style="min-height:400px;  background-image: url(assets/img/brand/bg.jpg); background-size:cover;
+     background-position:center;">
+</div>
+<!-- ACA SE MUESTRA EL CUADRO CENTRADO CON LAS OPCIONES QUE TIENE LA ADMINISTRACION DE ESTUDIANTES EN ESTE CASO -->
+<span class="mask bg-gradient-info opacity-6"></span>
+
+<!-- ACA SE MUESTRA EL CUADRO CENTRADO CON LAS OPCIONES QUE TIENE LA ADMINISTRACION DE ESTUDIANTES EN ESTE CASO -->
+
+<div class="container-fluid mt--9">
+<div class="row justify-content-center">
+   <div class="card bg-secondary shadow">
+       <div class="card-header bg-white border-0">
+           <div class="row align-items-center">
+               <div class="col-8">
+                   <h3 class="mb-0"> Administración de Productos</h3>
+               </div>
+           </div>
+       </div>
+       <!-- OPCIONES PARA ESCOGER TIPO NAVBAR -->
+       <div class="card-body">
+           <div class="nav-wrapper">
+               <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                   <li class="nav-item" >
+                       <a class="nav-link mb-sm-3 mb-md-0 " id="tabs-icons-text-1-tab" data-toggle="tab"
+                           role="tab" aria-controls="tabs-icons-text-1" aria-selected="true" (click)="showTab1()"> 
+                           <i class="ni ni-fat-add mr-2 text-green" ></i>
+                           Crear Producto
+                       </a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link mb-sm-3 mb-md-0 " id="tabs-icons-text-2-tab" data-toggle="tab"
+                           role="tab" aria-controls="tabs-icons-text-1" aria-selected="true" (click)="showTab2()"> 
+                           <i class="ni ni-fat-add mr-2 text-green" ></i>
+                           Consultar Productos
+                       </a>
+                   </li>
+               </ul>
+           </div> 
+           <!-- FINAL DE LA TABLA DE OPCIONES -->
+           <div class="card shadow ">
+               <div class="card-body ">
+                   <div  class="tab-content" [ngSwitch]="numTab" id="myTabContent">
+                       <!-- ACA SE MUESTRA EL SWITCH DE LA FUNCIONALIDAD DE LA OPCION ESCOGIDA -->
+                       <ul pt--0>
+                           <div class="tab-pane" id="tabs-icons-text-1" role="tabpanel" *ngSwitchCase=1>
+                               <div class="card-body">
+                                   <h3>Creacion de Producto</h3>
+                                   <form [formGroup]="form" class="form">
+                                       <div class="row justify-content-center">
+                                           <div class="card-profile-image-custom">
+                                               <div class="col-lg-3 order-lg-2">
+                                                   <label >
+                                                       <input type="file" style="display: none;" >
+                                                       <a>
+                                                           <img  src='assets/img/brand/producto.png' width="100" height="100" class="rounded-circle">
+                                                       </a>
+                                                   </label>    
+                                               </div>
+                                           </div>
+                                       </div> 
+                                       <div class="card-header text-center border-0 pt-8 pt-md-4 pb-5 pb-md-9">
+                                           <div class="d-flex justify-content-between">
+                                           </div>
+                                           <div class="row">
+
+                                               <div class="col-lg-6">
+                                                   <div class="form-group"
+                                                       [ngClass] = "{
+                                                           'has-success': form.controls.codigoProveedor.valid && (form.controls.codigoProveedor.dirty ),
+                                                           'has-danger': form.controls.codigoProveedor.invalid && (form.controls.codigoProveedor.dirty )
+                                                       }">
+                                                       <label class="form-control-label">codigoProveedor</label>&nbsp;
+                                                       <label  class="form-control-label"> <h5 style="color: gray;">(Ej.3721875)</h5> </label>
+                                                       <br />
+                                                       <input formControlName="codigoProveedor" 
+                                                               type="number" 
+                                                               class="form-control form-control-alternative" 
+                                                               name="codigoProveedor">
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-lg-6">
+                                                   <div class="form-group"
+                                                       [ngClass] = "{
+                                                           'has-success': form.controls.descripcion.valid && (form.controls.descripcion.dirty ),
+                                                           'has-danger': form.controls.descripcion.invalid && (form.controls.descripcion.dirty )
+                                                       }">
+                                                       <label for="productoDescripcion" class="form-control-label"> <span class="requiredField">(*)</span>descripcion </label>&nbsp;
+                                                       <label  class="form-control-label"> </label>
+                                                       <br />
+                                                       <input type="text" 
+                                                                formControlName="descripcion" 
+                                                                name="descripcion" 
+                                                                class="form-control form-control-alternative">
+                                                   </div>
+                                               </div>
+                                               <div class="col-lg-6">
+                                                   <div class="form-group"
+                                                       [ngClass] = "{
+                                                           'has-success': form.controls.existenciaMinima.valid && (form.controls.existenciaMinima.dirty ),
+                                                           'has-danger': form.controls.existenciaMinima.invalid && (form.controls.existenciaMinima.dirty )
+                                                       }">
+                                                       <label for="existenciaMinima" class="form-control-label"><span class="requiredField">(*)</span>existenciaMinima </label>&nbsp;
+                                                       <label  class="form-control-label"> </label>
+                                                       <input type="number" 
+                                                               formControlName="existenciaMinima" 
+                                                               name="existenciaMinima" 
+                                                               class="form-control form-control-alternative">
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-lg-6">
+                                                   <div class="form-group"
+                                                       [ngClass] = "{
+                                                           'has-success': form.controls.fechaVencimiento.valid && (form.controls.fechaVencimiento.dirty ),
+                                                           'has-danger': form.controls.fechaVencimiento.invalid && (form.controls.fechaVencimiento.dirty )
+                                                       }">
+                                                       <label for="productofechaVencimiento" class="form-control-label"> <span class="requiredField">(*)</span>fechaVencimiento </label>&nbsp;
+                                                       <label  class="form-control-label"> </label>
+                                                       <br />
+                                                       <input type="text" 
+                                                                formControlName="fechaVencimiento" 
+                                                                name="fechaVencimiento" 
+                                                                class="form-control form-control-alternative">
+                                                   </div>
+                                               </div>
+                                               <div class="col-lg-6">
+                                                   <div class="form-group"
+                                                       [ngClass] = "{
+                                                           'has-success': form.controls.ubicacionFisica.valid && (form.controls.ubicacionFisica.dirty ),
+                                                           'has-danger': form.controls.ubicacionFisica.invalid && (form.controls.ubicacionFisica.dirty )
+                                                       }">
+                                                       <label for="ubicacionFisica" class="form-control-label"><span class="requiredField">(*)</span>ubicacionFisica </label>&nbsp;
+                                                       <label  class="form-control-label"> </label>
+                                                       <input type="text" 
+                                                               formControlName="ubicacionFisica" 
+                                                               name="ubicacionFisica" 
+                                                               class="form-control form-control-alternative">
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <button type="button" 
+                                                       class="btn btn-success btn-lg center-custom"
+                                                       (click)="crearProducto()">Crear Producto</button>
+                                           </div>
+                                           
+                                       </div>
+                                   </form>
+                               </div>
+                           </div>
+                           <div class="tab-pane" id="tabs-icons-text-2" role="tabpanel" *ngSwitchCase=2>
+
+                           
+                               <div class="row">
+                                   <div class="col-lg-3">
+                                       <i class="filtericon icon-accessibility"></i>
+                                       <h2 class="mb-2">Filtros</h2>
+                                   </div>
+                               </div>
+                               
+                               <div class="row">
+                                   <div class="col-lg-4">
+                                       <div class="form-group">
+                                           <label for="" class="form-control-label">búsqueda por texto</label>
+                                           <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                                               <input type="text" nz-input placeholder="búscar producto" [(ngModel)]="valueInputSearch" />
+                                           </nz-input-group>
+                                           <ng-template #suffixIconButton>
+                                              <button nz-button nzType="primary" nzSearch (click)="buscarPorTexto()"><i nz-icon nzType="search"></i></button>
+                                           </ng-template>
+                                       </div>
+                                   </div>
+                                   
+                               </div>
+                               
+                               <div class="table-responsive">
+                                   <table id="tablaProductos" class="table align-items-center table-flush" >
+                                       <thead class="thead-light">
+                                           <tr>
+                                               <th scope="col">Accion</th>
+                                               <th scope="col">Código</th>
+                                               <th scope="col">descripción</th>
+                                               <th scope="col">Codigo Proveedor</th>
+                                               <th scope="col">Fecha Vencimiento</th>
+                                               <th scope="col">Ubicación Fisica</th>
+                                               <th scope="col">Existencia Minima</th>
+                                           </tr>
+                                       </thead>
+                                       <tbody >
+                                           <tr *ngFor="let producto of lstProductos| slice:desde:hasta" >
+                               
+                                               <td scope="row">
+                                                   <div class="media align-items-center">
+                                                       <button type="button" 
+                                                           ngbTooltip="click para modificar información del producto"
+                                                           id ="btnModificarProducto"
+                                                           class=" btn-warning btnCircle"
+                                                           (click)="modifyProducto(producto.codigoProducto)">
+                               
+                                                           <span class="btn-inner--icon">
+                                                               <span class="btn-inner--text"><i class="fas fa-user-edit"></i></span>
+                                                           </span>
+                                                       </button>
+                                                       &nbsp;
+                                                       <button type="button"
+                                                           ngbTooltip="click para dar de baja al producto"
+                                                           class=" btn-danger  btnCircle"
+                                                           id ="btnEliminarproducto"
+                                                           (click)="deleteProducto(producto.codigoProducto)">
+                                                           <span class="btn-inner--icon">
+                                                               <span class="btn-inner--text"><i class="fas fa-user-times"></i></span>
+                                                           </span>
+                                                       </button>
+                                                   </div>
+                                               </td>
+                                           
+                                               <td>
+                                                   {{producto.codigoProducto}}
+                                               </td>
+                                               <td>
+                                                   {{producto.descripcion}}
+                                               </td>
+                                               <td>
+                                                   {{producto.codigoProveedor}}
+                                               </td>
+                                               <td>
+                                                   {{producto.fechaVencimiento}}
+                                               </td>
+                                               <td>
+                                                   {{producto.ubicacionFisica}}
+                                               </td>
+                                               <td>
+                                                   {{producto.existenciaMinima}}
+                                               </td>
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                               <mat-paginator #paginadorProductos [length]="lstProductos.length"
+                                    [pageSize]="pageSize"
+                                    (page)="refreshPage($event)">
+                                </mat-paginator>
+                                 <!-- <ng-template #Msg let-c="close" let-d="dismiss">
+                                   <div class="modal-header">
+                                     <h4 class="modal-title" id="modal-basic-title">Aviso</h4>
+                                   </div>
+                                   <div class="modal-body">
+                                       <h3>{{mensajeAdvertencia}}</h3>
+                                   </div>
+                                   <div class="modal-footer">
+                                     <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button>
+                                   </div>
+                                 </ng-template> -->
+                               <!-- <mat-paginator #paginadorClientes[length]="lstCliente.length"
+                                   [pageSize]="pageSize"
+                                   (page)="refreshPage($event)">
+                               </mat-paginator>
+                               
+                               
+                               
+                              
+                               <ng-template #confirmEliminar  let-c="close" let-d="dismiss">
+                                   <div class="modal-header">
+                                     <h4 class="modal-title" id="modal-basic-title">Eliminación de clientes</h4>
+                                   </div>
+                                   <div class="modal-body">
+                                     <p>Estas seguro que deseas eliminar este registro?</p>
+                                   </div>
+                                   <div class="modal-footer">
+                                     <button type="button" 
+                                               class="btn btn-outline-danger"
+                                               id ="btnConfirmDelStudent"
+                                               (click)="c('Ok click')" >Eliminar</button>
+                                     <button type="button" class="btn btn-outline-dark" (click)="d('Close click')">Cancelar</button>
+                                   </div>
+                                 </ng-template>
+                               
+                               
+                                 
+                               <ng-template #Msg let-c="close" let-d="dismiss">
+                                   <div class="modal-header">
+                                     <h4 class="modal-title" id="modal-basic-title">Aviso</h4>
+                                   </div>
+                                   <div class="modal-body">
+                                       <h3>{{mensajeAdvertencia}}</h3>
+                                   </div>
+                                   <div class="modal-footer">
+                                     <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button>
+                                   </div>
+                                 </ng-template>
+                                  -->
+                               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                           </div>
+                       </ul>
+                       
+                   </div>
+               </div>
+           </div>
+       </div>    
+   </div>
+</div>
+</div>
